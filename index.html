@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Flashcard App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <!-- Header Section -->
+    <header class="app-header">
+      <h1 class="app-title">Flashcard App (Static Deck)</h1>
+      <p class="app-subtitle">Master core concepts with interactive 3D flip cards</p>
+    </header>
+
+    <!-- Progress Tracker -->
+    <section class="progress-section" aria-label="Deck Progress">
+      <div class="progress-header">
+        <span id="progress-text" class="progress-text">Card 1 of 12</span>
+        <span id="progress-percent" class="progress-percent">8% Complete</span>
+      </div>
+      <div class="progress-bar-track">
+        <div id="progress-bar-fill" class="progress-bar-fill" style="width: 8.33%;"></div>
+      </div>
+    </section>
+
+    <!-- 3D Flashcard Container -->
+    <main class="flashcard-wrapper">
+      <div id="flashcard" class="flashcard" tabindex="0" role="button" aria-pressed="false"
+        aria-label="Flashcard. Click or press Space to flip.">
+        <div class="card-inner">
+          <!-- Front Face (Question) -->
+          <div class="card-face card-front">
+            <div class="card-top">
+              <span id="card-category-front" class="card-category">Category</span>
+              <span class="face-tag question-tag">Question</span>
+            </div>
+            <div class="card-content">
+              <p id="card-question" class="card-text">Loading question...</p>
+            </div>
+          </div>
+
+          <!-- Back Face (Answer) -->
+          <div class="card-face card-back">
+            <div class="card-top">
+              <span id="card-category-back" class="card-category">Category</span>
+              <span class="face-tag answer-tag">Answer</span>
+            </div>
+            <div class="card-content">
+              <p id="card-answer" class="card-text">Loading answer...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Navigation and Action Controls -->
+    <nav class="controls-container" aria-label="Card Controls">
+      <button id="prev-btn" class="btn btn-secondary" title="Previous Card (Left Arrow)">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <span>Previous</span>
+      </button>
+
+      <button id="flip-btn" class="btn btn-action" title="Flip Card (Spacebar)">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path
+            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+            stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <span>Flip Card</span>
+      </button>
+
+      <button id="next-btn" class="btn btn-primary" title="Next Card (Right Arrow)">
+        <span>Next</span>
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Extra Tools: Shuffle & Reset -->
+    <div class="secondary-actions">
+      <button id="shuffle-btn" class="btn-link" title="Randomize Deck Order">
+        <svg class="btn-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M16 3h5v5M4 20l6.5-6.5M21 3l-7 7M4 4l5 5m5 5l6 6M16 21h5v-5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+        <span>Shuffle Deck</span>
+      </button>
+      <span class="divider">|</span>
+      <button id="reset-btn" class="btn-link" title="Reset to First Card">
+        <svg class="btn-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12a9 9 0 109-9 9.75 9.75 0 00-6.74 2.74L3 8m0 0V3m0 5h5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+        <span>Reset Order</span>
+      </button>
+    </div>
+
+    <!-- Keyboard Shortcuts Help -->
+    <footer class="app-shortcuts">
+      <p class="shortcuts-title">Keyboard Navigation</p>
+      <div class="shortcuts-list">
+        <span class="shortcut-tag"><kbd>&larr;</kbd> Prev</span>
+        <span class="shortcut-tag"><kbd>Space</kbd> or <kbd>Enter</kbd> Flip</span>
+        <span class="shortcut-tag"><kbd>&rarr;</kbd> Next</span>
+        <span class="shortcut-tag"><kbd>S</kbd> Shuffle</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
